@@ -18,8 +18,11 @@ public class CharCount {
                 "erat volutpat. Donec sit amet suscipit metus, " +
                 "non lobortis massa. Vestibulum augue ex, dapibus " +
                 "ac suscipit vel, volutpat eget massa. Donec nec " +
-                "velit non ligula efficitur luctus.";
+                "velit non ligula efficitur luctus.z";
 
+        //convert to lowercase, optional
+        demo = demo.toLowerCase();
+        demo = demo.trim();
         char[] charactersInString;
         charactersInString = demo.toCharArray();
         HashMap<Character, Integer> letterCount;
@@ -27,6 +30,9 @@ public class CharCount {
 
         for (int i=0;i<=charactersInString.length-1; i++) {
             Character c = charactersInString[i];
+            //get rid of all non-letters
+            if (!Character.isLetter(c))continue;
+            //if not included, add; otherwise augment
             if (!letterCount.containsKey(c)) {
                 letterCount.put(c, 1);
             } else {
